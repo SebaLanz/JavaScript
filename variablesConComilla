@@ -1,0 +1,4 @@
+
+/* ALT + } = ``
+después las variables, las tengo que encerrar en {} y agregar adelante el signo $*/
+console.log(`termino acá -->: ${variable3}x+${i}`);
