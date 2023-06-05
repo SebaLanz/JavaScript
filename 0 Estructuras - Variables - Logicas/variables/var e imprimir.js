@@ -14,7 +14,8 @@ let variable = prompt("Ingresar variable");
 //Parse.
 parseFloat(variable);/*Valor a float*/
 parseInt(variable);/*Valor a int*/
-
+//Parse + declarar + solicitar.
+num1 = parseFloat(prompt(num1));
 
 /*Parse de Json */
 const jsonString = '{"nombre": "Juan", "edad": 30}';
