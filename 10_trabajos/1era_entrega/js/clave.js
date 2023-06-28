@@ -4,7 +4,6 @@ let longitud_clave = prompt('Ingrese logitud de clave, mínimo 7 máximo 20');//
 let clave_generada = '';
 
 console.log(validar_longitud(longitud_clave));  
-  
 
 /*INICIO DE FUNCIONES ---------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------*/
@@ -24,21 +23,23 @@ function generarCadenaAleatoria(longitud) {
 
 //Funcion para validar longitud longitud_clave(parametro)no tiene que tener necesariamente el mismo nombre a la variable recibida.
 function validar_longitud(longitud_clave){
-        if ((!validarNumeroEntero(longitud_clave)) || longitud_clave == '' || !Number(longitud_clave)) {
+        if ((!validarNumeroEntero(longitud_clave)) || longitud_clave == '' || !Number(longitud_clave) || longitud_clave == 0) {
             if (longitud_clave == ''){
                 console.log('El campo no puede estar vacío.');      
             }else if(!validarNumeroEntero(longitud_clave)){
-                console.log(`No es un número entero, digitó: '${longitud_clave}'`);
+                alert(`No es un número entero, digitó: '${longitud_clave}'`);
+            }
+            else{
+                alert('El largo de la clave es insuficiente');
             }
         }
         else if (longitud_clave<7 || longitud_clave>20){
-            console.log(`La longitud '${longitud_clave}' no cumple los requisitos.`);
+            alert(`La longitud '${longitud_clave}' no cumple los requisitos.`);
         }
         else{
             //Acá está ok la longitud y el valor. Generó la nueva clave.
-            console.log(`la longitud es de: ${longitud_clave}`);
             clave_generada = generarCadenaAleatoria(longitud_clave);
-            console.log(`Clave generada: ${clave_generada}`);
+            alert(`La clave generada es: ${clave_generada}  y su longitud es de: ${longitud_clave}`);
         }
 }
 //Fin funcion validar longitud -------------------------------------------------------------------------------------------------------.

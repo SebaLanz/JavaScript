@@ -6,8 +6,8 @@ class Controlador extends Clave {
   //Creo la funcion "validar_longitud".
   validar_longitud = (longitud_clave) => { 
 
-    //Instancio un objeto de tipo Clave
-    const claveValida = new Controlador();
+    //Instancio un objeto de tipo Controlador que hereda los métodos de Clave
+    const obgValidador = new Controlador();
 
     /*Ejecuto la función "validarNumeroEntero" con el objeto "claveValida". La función está heredada de la clase "Clave".
     Realizo las validaciones correspondientes.
@@ -18,7 +18,7 @@ class Controlador extends Clave {
     
 
     try {
-      if ((!claveValida.validarNumeroEntero(longitud_clave) || longitud_clave == '' || !Number(longitud_clave))){
+      if ((!obgValidador.validarNumeroEntero(longitud_clave) || longitud_clave == '' || !Number(longitud_clave))){
         if (longitud_clave == ''){
           return ('El campo no puede estar vacío.');      
         }
@@ -28,7 +28,7 @@ class Controlador extends Clave {
         else if (longitud_clave === '0') {
           return 'El valor no puede ser cero';
         }
-        else if(!claveValida.validarNumeroEntero(longitud_clave)){
+        else if(!obgValidador.validarNumeroEntero(longitud_clave)){
             return (`No es un número entero, digitó: '${longitud_clave}'`);
         }
       }
@@ -51,20 +51,35 @@ class Controlador extends Clave {
   }
 
   validar_cantidad_claves = (cantidad) => {
-    let cantidad_claves = prompt('¿Cuántas claves desea generar?');
-    let i = 0;
-    let longitud_clave = [];
-    let array_de_claves=[];
-    while ( i <= (cantidad_claves - 1)) {
-        longitud_clave[i] = prompt('Ingrese logitud de clave, mínimo 7 máximo 20');
-        i++;
-    }
-
+    const obgValidador = new Controlador();
+    try {
+      if ((!obgValidador.validarNumeroEntero(cantidad) || cantidad == '' || !Number(cantidad))){
+        if (cantidad == ''){
+          return ('El campo no puede estar vacío.');      
+        }
+        if (cantidad == null) {
+          return ('Omitió ingresar un valor.');
+        }
+        else if (cantidad === '0') {
+          return 'El valor no puede ser cero';
+        }
+        else if(!obgValidador.validarNumeroEntero(cantidad)){
+            return (`No es un número entero, digitó: '${cantidad}'`);
+        }
+      }
+      //Cumple todos los requisitos
+      else{
+        return true;
+      }
+    
+    } catch (cantidad) {
+      return 'Error sin validar en Controlador';
+    }   
   }
 
-
-
+  solicitar_cantidad_repeticiones = (claves_a_generar) =>{
+    //intentaré hacer una funcion para generar el proceso.
+  }
 
 }
-
 export default Controlador;//Exporto la clase "Controlador"
