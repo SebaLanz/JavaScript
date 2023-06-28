@@ -64,7 +64,7 @@ class Controlador extends Clave {
           return 'El valor no puede ser cero';
         }
         else if(!obgValidador.validarNumeroEntero(cantidad)){
-            return (`No es un número entero, digitó: '${cantidad}'`);
+            return (`Valor invalido, digitó: '${cantidad}', ingrese nuevamente un número.`);
         }
       }
       //Cumple todos los requisitos

@@ -1,10 +1,10 @@
-import Controlador from '../controlador/controlador.js';//Me traigo las propiedades y métodos de "Controlador".
+import Controlador from '../controlador/con_clave.js';//Me traigo las propiedades y métodos de "Controlador".
 
 //Creo objetos de tipo Controlador.
 const objClave = new Controlador();
 const objCantidad = new Controlador();
 
-let cantidad_claves = prompt('¿Cuántas claves desea generar?');
+let cantidad_claves = prompt(`¿Cuántas claves desea generar?. Digite un número natural`);
 let claves_a_generar = objCantidad.validar_cantidad_claves(cantidad_claves);
 
     if (claves_a_generar === true){
@@ -24,9 +24,14 @@ let claves_a_generar = objCantidad.validar_cantidad_claves(cantidad_claves);
     else if (claves_a_generar != true) {
         while (claves_a_generar != true) {
             alert(claves_a_generar);//Muestro el valor MAL ingresado por el usuario. 
+            if (claves_a_generar === 'Omitió ingresar un valor.') {
+                alert('Se cerrará el programa.');
+                break;
+            }
             cantidad_claves = prompt('¿Cuántas claves desea generar?');//Vuelvo a pedir cantidad.
             claves_a_generar = objCantidad.validar_cantidad_claves(cantidad_claves);//Vuelvo a comprobar si cumple los requisitos.
             //Si cumple los requisitos, ingresa al IF y genera un array concatenado de claves.
+            
             if (claves_a_generar === true) {
                 let i = 0;
                 let longitud_clave = [];
