@@ -54,11 +54,8 @@ class Controlador extends Clave {
     const obgValidador = new Controlador();
     try {
       if ((!obgValidador.validarNumeroEntero(cantidad) || cantidad == '' || !Number(cantidad))){
-        if (cantidad == ''){
-          return ('El campo no puede estar vacío.');      
-        }
-        if (cantidad == null) {
-          return ('Omitió ingresar un valor.');
+        if (cantidad == '' || cantidad == null){
+          return ('El valor ingresado no es válido.');  
         }
         else if (cantidad === '0') {
           return 'El valor no puede ser cero';
@@ -75,10 +72,6 @@ class Controlador extends Clave {
     } catch (cantidad) {
       return 'Error sin validar en Controlador';
     }   
-  }
-
-  solicitar_cantidad_repeticiones = (claves_a_generar) =>{
-    //intentaré hacer una funcion para generar el proceso.
   }
 
 }
