@@ -13,27 +13,15 @@ let txtAreaClavesGeneradas = document.getElementById("idClavesGeneradasTextArea"
 
 //Obtener datos del formulario.
 
-function capturarCantidad(){
-    var cantidad;
-    document.getElementById("idBtnGenerarClave").addEventListener("submit", function(event) {
-      event.preventDefault(); // Evita que el formulario se envíe
-  
-      cantidad = document.getElementById("TxtCantidad").value;
-    });
-  
-    return cantidad;
-}
-  var cantidad = capturarCantidad();
-
 
 //Código
-//let cantidad = prompt(`¿Cuántas claves desea generar?. Digite un número natural`);
+let cantidad = prompt(`¿Cuántas claves desea generar?. Digite un número natural`);
 
 let claves_a_generar = objCantidad.validar_cantidad_claves(cantidad);
 
     if (claves_a_generar === true){
         /*Devuelve un Verdadero cuando la cantidad es un número válido, es decir, un número natural (n° positivo). Ingresa en este if
-          donde genero las claves aleatorias.
+        donde genero las claves aleatorias.
           1) Pido la longitud de claves. */
         let i = 0;
                 let longitud_clave = [];//Declaro array donde almaceno la longitud de cada clave a crear. El usuario puede pedir n cantidad de claves.
@@ -55,14 +43,13 @@ let claves_a_generar = objCantidad.validar_cantidad_claves(cantidad);
                     array_de_claves += `${i+1}) ${objClave.validar_longitud(longitud_clave[i])}\n`;
                 }
                 //Acá muestro en un alert las claves / excepciones arrojadas.
-                if (cantidad.length === 1) {
+                /*if (cantidad.length === 1) {
                     //Si la cantidad de claves a generar es 1, modifico el texto.
-                    tituloCantidadClaves.innerText = "Clave generada";
+                    //tituloCantidadClaves.innerText = "Clave generada";
                 } else {
                     // nada
-                }
+                }*/
                 //Muestro las claves si en el primer intento, el usuario ingresó un valor válido.
-                //alert(array_de_claves);
                 //Muestro en el text area las claves/excepciones generadas
                 txtAreaClavesGeneradas.innerHTML = array_de_claves;
     }
@@ -96,7 +83,6 @@ let claves_a_generar = objCantidad.validar_cantidad_claves(cantidad);
                 1er intento = asdasd
                 otroIntento  = verdadero
                 */
-                //alert(array_de_claves);
                 //Muestro en el text area las claves/excepciones generadas
                 txtAreaClavesGeneradas.innerHTML = array_de_claves;
             }
