@@ -5,7 +5,7 @@
 }
 //Variables.
 $btn_borde:solid black 1px;
-$btn_color:#dfdfdf ;
+$btn_color:#aa9696 ;
 $btn_width: 150px;
 $color_texto: #000000;
 $btn_color_texto: #000000;
@@ -26,7 +26,8 @@ body {
     background-color: #aa9696;
 }
 form {
-    width: 350px;
+    width: 400px;
+    height: 400px;
     padding: 20px;
     background: #ffffff;
     border-radius: 4px;
@@ -37,6 +38,7 @@ form {
     h3{
         color: $color_texto;
         padding-bottom: $padding_h3;
+        margin-top: 20px;
     }
 
     //div -> label
@@ -48,7 +50,16 @@ form {
         flex-direction: column;
         align-items: center;
     }
-   
+    .contenido{
+        
+        label{
+            margin-bottom: 20px;
+        }
+        input{
+            margin-bottom: 20px;
+            
+        }
+    }
     //btn-generar
     button{
         background-color: $btn_color !important;
@@ -58,9 +69,9 @@ form {
         transition: 0.7s;
     }
     button:hover{
-        background-color: #000000 !important;
+        background-color: #50e7ce !important;
         transition: 0.7s;
-        color: white !important;
+        color: rgb(36, 36, 36) !important;
     }
     div input{
         width: 250px !important;
