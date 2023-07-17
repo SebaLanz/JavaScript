@@ -1,12 +1,22 @@
 class SweetAlert {
 
-//sweetalert
+//sweetalert de Error
     errorAlert = () => {
         Swal.fire({
             icon: 'error',
             title: 'El valor ingresado no es correcto.'
         });
     }
+
+    borrarContenidoAlerta = () => {
+        Swal.fire({
+        title: 'Contraseñas eliminadas',
+        icon: 'success',
+        text: 'Todas las contraseñas almacenadas han sido eliminadas.',
+        confirmButtonText: 'Aceptar'
+        });
+        const numerosLista = document.getElementById("numeros-lista");
+        numerosLista.innerHTML = "";
+    }
 }
-    
 export default SweetAlert;
