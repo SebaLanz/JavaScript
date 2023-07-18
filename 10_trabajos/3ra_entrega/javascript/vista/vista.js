@@ -14,7 +14,9 @@ document.getElementById("idBtnGenerarClave").addEventListener("click", function(
     let claves_a_generar = objCantidad.validar_cantidad_claves(cantidad);
     if (claves_a_generar === true){
         let i = 0;
-        let longitud_clave = [];    
+        let longitud_clave = [];
+        const objClavesGeneradas = [];
+  
         while ( i <= (cantidad - 1)) {
             longitud_clave[i] = prompt('Ingrese logitud de clave, mínimo 7 máximo 20');
             i++;
@@ -25,14 +27,34 @@ document.getElementById("idBtnGenerarClave").addEventListener("click", function(
         let array_de_claves=[];
             for (let i = 0; i <= cantidad; i++) {           
                 array_de_claves[i] =[''];
-            }      
+            }     
+
             for (let i = 0; i < longitud_clave.length; i++) {
                 array_de_claves[i] += `${objClave.validar_longitud(longitud_clave[i])}\n`;
                 numeroItem[i] = document.createElement("li");
                 numeroItem[i].textContent = array_de_claves[i];
                 numerosLista.appendChild(numeroItem[i]);
+                
                 arrayLi.push(numeroItem[i]);   
-            }         
+
+
+                //Itento de storage
+                if (i<longitud_clave.length) {
+                    objClavesGeneradas[i] += [{id: i , clave: `${array_de_claves[i]}`},];
+                } else {
+                    objClavesGeneradas[i] += [{id: i , clave: `${array_de_claves[i]}`}];
+                }
+                
+            }
+        const guardarLocal = (id, clave) => { localStorage.setItem(id, clave) };
+        //Almacenar producto por producto
+        for (const objClavesGenerada of objClavesGeneradas) {
+            guardarLocal(objClavesGenerada.id, JSON.stringify(objClavesGenerada));
+        }
+        for (let i = localStorage.length -2; i >0-1; i--) {          
+            const valor = localStorage.getItem(clave);               
+            console.log(valor.clave);
+        }       
     }else{sweetBtn.errorAlert();}
 
 
