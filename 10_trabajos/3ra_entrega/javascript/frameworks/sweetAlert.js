@@ -17,6 +17,9 @@ class SweetAlert {
         });
         const numerosLista = document.getElementById("numeros-lista");
         numerosLista.innerHTML = "";
+        // const modalContainer = document.getElementById("modalContainer");
+        // modalContainer.innerHTML = "";
     }
+
 }
 export default SweetAlert;
