@@ -73,6 +73,32 @@ class Controlador extends Clave {
       return 'Error sin validar en Controlador';
     }   
   }
+  
+  
+
+  mostrarClaves = () => {
+    // Obtener el array de claves almacenado en el localStorage
+    const jsonClavesParseado = localStorage.getItem("arrayClaves");
+    // Convertir el JSON a un array de objetos
+    const todasLasClaves = JSON.parse(jsonClavesParseado);
+
+    let numerosLista = document.getElementById("numeros-lista");
+    numerosLista.innerHTML = ""; // Limpiar la lista antes de agregar las claves
+
+    // Recorrer el array de claves obtenido del localStorage
+    todasLasClaves.forEach((claveObj) => {
+        const numeroItem = document.createElement("li");
+        numeroItem.textContent = claveObj.clave;
+        numerosLista.appendChild(numeroItem);
+    });
+
+    // Mostrar el modal
+    const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+    modal.show();
+}
+
+
+  
 
 }
 export default Controlador;//Exporto la clase "Controlador"

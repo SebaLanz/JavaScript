@@ -15,10 +15,19 @@ class SweetAlert {
         text: 'Todas las contraseñas almacenadas han sido eliminadas.',
         confirmButtonText: 'Aceptar'
         });
-        const numerosLista = document.getElementById("numeros-lista");
-        numerosLista.innerHTML = "";
-        // const modalContainer = document.getElementById("modalContainer");
-        // modalContainer.innerHTML = "";
+        //const numerosLista = document.getElementById("numeros-lista");
+        //numerosLista.innerHTML = "";
+
+        //Vacío el localStorage.
+        localStorage.clear();
+
+        // Si no hay datos en el localStorage, no me abre el modal vacío de "mostrar claves".
+        // Entonces, genero un array vacío, para que se muestre el modal sin datos.
+        const jsonClavesParseado = localStorage.getItem("arrayClaves");
+        if (!jsonClavesParseado) {
+            localStorage.setItem("arrayClaves", "[]");
+            localStorage.setItem("lastID", "0");
+        }
     }
 
 }
