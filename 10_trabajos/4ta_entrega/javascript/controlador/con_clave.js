@@ -77,6 +77,8 @@ class Controlador extends Clave {
   
 
   mostrarClaves = () => {
+    const errorModal = document.getElementById("error-modal");
+    errorModal.innerHTML = ""; // Limpio el contenido previo del modal (del error).
     // Obtener el array de claves almacenado en el localStorage
     const jsonClavesParseado = localStorage.getItem("arrayClaves");
     // Convertir el JSON a un array de objetos
@@ -94,6 +96,14 @@ class Controlador extends Clave {
 
     // Mostrar el modal
     const modal = new bootstrap.Modal(document.getElementById("exampleModal"));
+    let lastID = parseInt(localStorage.getItem("lastID"));//Obtengo el id 0
+    if (lastID === 0) {
+      const numeroItem = document.createElement("p");
+      numeroItem.innerHTML = `En el sistema, no hay claves almacenadas.<br>
+                              Deberá generar nuevas claves!!! 
+                              &#128517; `;
+      numerosLista.appendChild(numeroItem);
+    }
     modal.show();
 }
 

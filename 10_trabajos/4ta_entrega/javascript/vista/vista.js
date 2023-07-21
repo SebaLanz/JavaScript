@@ -74,6 +74,7 @@ const crearClaves = () => {
         //Almaceno el último ID para poder ir actualizando el array "arrayClaves" con un id autoincremental.
         localStorage.setItem("lastID", lastID);
     } else {
+        
        // Modificar el contenido del modal para mostrar el mensaje de "valor inválido"
         const numerosLista = document.getElementById("error-modal");
         numerosLista.innerHTML = ""; // Limpiamos el contenido previo del modal
